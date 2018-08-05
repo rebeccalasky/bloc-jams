@@ -1,7 +1,6 @@
 
 
-function loadAfterTime(){
-
+function animatePoints(){
 
     var points = document.getElementsByClassName('point');
 
@@ -18,8 +17,13 @@ function loadAfterTime(){
       }
 
 
-};
+}
 
 window.onload = function() {
   setTimeout(loadAfterTime, 250)
 };
+
+
+function loadAfterTime(){
+animatePoints();
+}
