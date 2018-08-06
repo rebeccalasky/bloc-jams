@@ -30,6 +30,23 @@ var albumMarconi = {
     ]
 };
 
+// Third Example Album
+var albumAbbeyRoad = {
+    title: 'Abbey Road',
+    artist: 'Beatles',
+    label: 'Apple',
+    year: '1969',
+    albumArtUrl: 'assets/images/album_covers/AR.jpg',
+    songs: [
+        { title: 'Come Together', duration: '4:19' },
+        { title: 'Something', duration: '3:02' },
+        { title: 'Maxwells Silver Hammer', duration: '3:27'},
+        { title: 'Oh Darling', duration: '3:28' },
+        { title: 'Octopus Garden', duration: '2:51'}
+    ]
+};
+
+
 var createSongRow = function(songNumber, songName, songLength) {
     var template =
        '<tr class="album-view-song-item">'
@@ -42,14 +59,14 @@ var createSongRow = function(songNumber, songName, songLength) {
     return template;
 };
 
-var setCurrentAlbum = function(album) {
-    // #1
-    var albumTitle = document.getElementsByClassName('album-view-title')[0];
-    var albumArtist = document.getElementsByClassName('album-view-artist')[0];
-    var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
-    var albumImage = document.getElementsByClassName('album-cover-art')[0];
-    var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
+// #1
+var albumTitle = document.getElementsByClassName('album-view-title')[0];
+var albumArtist = document.getElementsByClassName('album-view-artist')[0];
+var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
+var albumImage = document.getElementsByClassName('album-cover-art')[0];
+var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
 
+var setCurrentAlbum = function(album) {
     // #2
     albumTitle.firstChild.nodeValue = album.title;
     albumArtist.firstChild.nodeValue = album.artist;
@@ -67,4 +84,15 @@ var setCurrentAlbum = function(album) {
 
 window.onload = function() {
     setCurrentAlbum(albumPicasso);
+var albums = [albumPicasso, albumMarconi, albumAbbeyRoad];
+var index = 0;
+albumImage.addEventListener("click", function(event){
+  setCurrentAlbum(albums[index])
+  index++;
+  if (index == albums.length) {
+    index = 0;}
+
+  }
+);
+//    document.getElementById("demo").innerHTML = Date();
 };
