@@ -1,3 +1,17 @@
+var pointsArray = document.getElementsByClassName('point');
+
+function revealPoint(point){
+      point.style.opacity = 1;
+      point.style.transform = "scaleX(1) translateY(0)";
+      point.style.msTransform = "scaleX(1) translateY(0)";
+      point.style.WebkitTransform = "scaleX(1) translateY(0)";
+    }
+
+function animatePoints(points){
+forEach(points, revealPoint);
+}
+
+
 window.onload = function() {
   if (window.innerHeight > 950) {
          animatePoints(pointsArray);
@@ -11,26 +25,3 @@ window.onload = function() {
          }
        });
 };
-var pointsArray = document.getElementsByClassName('point');
-
-function animatePoints(points){
-
-    function revealPoint(indexNum){
-      points[indexNum].style.opacity = 1;
-      points[indexNum].style.transform = "scaleX(1) translateY(0)";
-      points[indexNum].style.msTransform = "scaleX(1) translateY(0)";
-      points[indexNum].style.WebkitTransform = "scaleX(1) translateY(0)";
-    }
-
-    for (var i = 0; i < points.length; i++){
-      revealPoint(i);
-      }
-}
-animatePoints();
-
-
-/*
-function loadAfterTime(){
-animatePoints();
-}
-*/
